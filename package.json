@@ -1,0 +1,23 @@
+{
+  "name": "vue-components",
+  "version": "0.0.1",
+  "description": "vue UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofiaYing/vue-components.git"
+  },
+  "keywords": [
+    "vue",
+    "UI"
+  ],
+  "author": "ying",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SofiaYing/vue-components/issues"
+  },
+  "homepage": "https://github.com/SofiaYing/vue-components#readme"
+}
