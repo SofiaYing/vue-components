@@ -7,8 +7,8 @@ module.exports = {
   // https://www.foobar.com/my-app/
   // 那么将这个值改为 `/my-app/`
 
-  // baseUrl: '/',
-  baseUrl: process.env.NODE_ENV === 'production' ? '//your_url': '/',
+  baseUrl: '/',
+  // baseUrl: process.env.NODE_ENV === 'production' ? '//your_url': '/',
 
   // 将构建好的文件输出到哪里
   outputDir: 'dist',
@@ -32,10 +32,12 @@ module.exports = {
   // 有了map就可以像未加密的代码一样，准确的输出是哪一行哪一列有错。
   productionSourceMap: true,
 
+  runtimeCompiler:true,
+
   // CSS 相关选项
   css: {
     // 将组件内的 CSS 提取到一个单独的 CSS 文件 (只用在生产环境中)
-    extract: true,
+    // extract: true,
 
     // 是否开启 CSS source map？
     sourceMap: false,
@@ -44,11 +46,11 @@ module.exports = {
     // sass-loader 时，使用 `{ sass: { ... } }`。
     loaderOptions: {
       // 给 sass-loader 传递选项
-      // sass: {
-      //   // @/ 是 src/ 的别名
-      //   // 所以这里假设你有 `src/variables.scss` 这个文件
-      //   data: `@import "@/variables.scss";`
-      // }
+      less: {
+        // @/ 是 src/ 的别名
+        // 所以这里假设你有 `src/variables.scss` 这个文件
+        data: `@import "@/assets/styles/variables.less";`
+      }
     },
 
     // 为所有的 CSS 及其预处理文件开启 CSS Modules。
@@ -70,12 +72,13 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080,
     https: false,
-    hotOnly: false,
-    // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
-    proxy: null, // string | Object
-    before: app => {
-      // `app` 是一个 express 实例
-    }
+    // hotOnly: true,
+    hot:true,
+    // // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
+    // proxy: null, // string | Object
+    // before: app => {
+    //   // `app` 是一个 express 实例
+    // }
   },
 
   // 三方插件的选项
