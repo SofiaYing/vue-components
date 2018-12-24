@@ -1,6 +1,8 @@
 <template>
   <div class="home">
+    <c-button>按钮</c-button>
     <c-button icon="search">按钮</c-button>
+    <c-button icon="search" icon-position="right">按钮</c-button>
   </div>
 </template>
 
