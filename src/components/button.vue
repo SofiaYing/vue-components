@@ -1,9 +1,6 @@
 <template>
 <button class="c-button" :class="{[`icon-${iconPosition}`]:true}">
-  <svg v-if="icon" class="icon">
-    <use :xlink:href="`#icon-${icon}`"></use>
-  </svg>
-  <!-- <svg class="icon"><use xlink:href="#icon-search"></use></svg> -->
+  <c-icon class="icon" v-if="icon" :name="icon"></c-icon>
   <div class="content">
     <!-- slot 不能添加class -->
     <slot></slot>
@@ -12,6 +9,8 @@
 </template>
 
 <script>
+import icon from './icon'
+
 export default {
   // props:['icon','iconPosition'],
   props: {
@@ -33,10 +32,13 @@ export default {
         // return !(value !== 'left' &&  value !== 'right')
 
         // 继续优化
-        return value === 'left' || vaule === 'right'
+        return value === 'left' || value === 'right'
       },
     },
   },
+  components:{
+    'c-icon': icon,
+  }
 }
 </script>
 
@@ -59,8 +61,6 @@ export default {
     opacity: 0.9;
   }
   .icon{
-    height: 1em;
-    width: 1em;
     order: 1;
     margin-right: 0.3em;
   }
