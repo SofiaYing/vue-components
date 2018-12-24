@@ -1,13 +1,18 @@
 <template>
 <button class="c_button">
+  <svg v-if="icon" class="icon">
+    <use :xlink:href="`#icon-${icon}`">
+
+    </use>
+  </svg>
+  <!-- <svg class="icon"><use xlink:href="#icon-search"></use></svg> -->
   <slot></slot>
 </button>
-  
 </template>
 
 <script>
 export default {
-  
+  props:['icon'],
 }
 </script>
 
@@ -25,6 +30,10 @@ export default {
   color: #fff;
   &:hover{
     opacity: 0.9;
+  }
+  .icon{
+    height: 1em;
+    width: 1em;
   }
 }
 </style>
