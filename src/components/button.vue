@@ -13,7 +13,30 @@
 
 <script>
 export default {
-  props:['icon','iconPosition'],
+  // props:['icon','iconPosition'],
+  props: {
+    icon: '',
+    iconPosition: {
+      type: String,
+      default: 'left',     //防止用户不传iconPosition的时候，class=icon-undefined
+      //属性检查器
+      //用户传入的不是left或right，会报错
+      validator: function(value){
+        // 无论是true还是false都要返回，因为需要返回值
+        // if(value!=='left' && value!=='right'){
+        //   return false
+        // }else{
+        //   return true
+        // }
+
+        // 代码优化
+        // return !(value !== 'left' &&  value !== 'right')
+
+        // 继续优化
+        return value === 'left' || vaule === 'right'
+      },
+    },
+  },
 }
 </script>
 
