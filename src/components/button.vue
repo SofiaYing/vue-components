@@ -1,6 +1,7 @@
 <template>
 <button class="c-button" :class="{[`icon-${iconPosition}`]:true}">
-  <c-icon class="icon" v-if="icon" :name="icon"></c-icon>
+  <c-icon class="icon" v-if="icon && !loading" :name="icon"></c-icon>
+  <c-icon class="icon" v-else-if="icon && loading" name="load"></c-icon>
   <div class="content">
     <!-- slot 不能添加class -->
     <slot></slot>
@@ -34,6 +35,12 @@ export default {
         // 继续优化
         return value === 'left' || value === 'right'
       },
+    },
+    loading: {
+      type: Boolean,
+    },
+    circle: {
+      type: Boolean,
     },
   },
   components:{
@@ -76,6 +83,9 @@ export default {
     .content{
       order: 1;
     }
+  }
+  &.circle{
+    border-radius: 50%;
   }
 }
 </style>
