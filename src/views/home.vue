@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-     <g-button></g-button>
+    <c-button>按钮</c-button>
+    <c-button icon="search">按钮</c-button>
+    <c-button icon="search" icon-position="right">按钮</c-button>
+    <!-- <c-button icon="search" icon-position="start"">按钮</c-button> -->
   </div>
 </template>
 
@@ -14,7 +17,7 @@ export default {
     }
   },
   components:{
-    'g-button':button,
+    'c-button':button,
   },
 }
 </script>
