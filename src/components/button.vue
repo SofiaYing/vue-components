@@ -1,5 +1,11 @@
 <template>
-<button class="c-button" :class="{[`icon-${iconPosition}`]:true}">
+<button 
+  class="c-button" 
+  :class="{
+    [`icon-${iconPosition}`]:true, 
+    circle:circle,
+  }"
+  @click="clickHandler">
   <c-icon class="icon" v-if="icon && !loading" :name="icon"></c-icon>
   <c-icon class="icon" v-else-if="icon && loading" name="load"></c-icon>
   <div class="content">
@@ -45,6 +51,11 @@ export default {
   },
   components:{
     'c-icon': icon,
+  },
+  methods:{
+    clickHandler(){
+      this.$emit('click')
+    },
   }
 }
 </script>
@@ -86,6 +97,12 @@ export default {
   }
   &.circle{
     border-radius: 50%;
+    width: 32px;
+    padding: 0;
+    justify-content: center;
+    .icon{
+      margin-right: 0;
+    }
   }
 }
 </style>
