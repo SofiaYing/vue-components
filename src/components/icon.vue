@@ -1,5 +1,5 @@
 <template>
-<svg v-if="name" class="c-icon" :class="{loading:name === 'load'}">
+<svg v-if="name" class="c-icon" :class="{loading:name === 'loading'}">
   <use :xlink:href="`#icon-${name}`"></use>
 </svg>
 <!-- <svg class="icon"><use xlink:href="#icon-search"></use></svg> -->
