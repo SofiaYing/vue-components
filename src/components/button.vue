@@ -5,6 +5,7 @@
     [`icon-${iconPosition}`]: true, 
     'is-circle': circle,
     'is-round': round,
+    'is-ghost': ghost,
   }"
   @click="clickHandler">
 
@@ -49,6 +50,7 @@ export default {
     loading: Boolean,
     circle: Boolean,
     round: Boolean,
+    ghost: Boolean,
   },
   components:{
     'c-icon': icon,
@@ -107,12 +109,11 @@ export default {
   }
   &.is-round{
     border-radius: 20px;
-    // width: 32px;
-    // padding: 0;
-    // justify-content: center;
-    // .icon{
-    //   margin-right: 0;
-    // }
+  }
+  &.is-ghost{
+    background-color: transparent;
+    border: solid 1px #fff;
+    color: #fff;
   }
 }
 </style>
