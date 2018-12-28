@@ -2,8 +2,9 @@
 <button 
   class="c-button" 
   :class="{
-    [`icon-${iconPosition}`]:true, 
-    circle:circle,
+    [`icon-${iconPosition}`]: true, 
+    'is-circle': circle,
+    'is-round': round,
   }"
   @click="clickHandler">
 
@@ -45,12 +46,9 @@ export default {
         return value === 'left' || value === 'right'
       },
     },
-    loading: {
-      type: Boolean,
-    },
-    circle: {
-      type: Boolean,
-    },
+    loading: Boolean,
+    circle: Boolean,
+    round: Boolean,
   },
   components:{
     'c-icon': icon,
@@ -98,7 +96,7 @@ export default {
       order: 1;
     }
   }
-  &.circle{
+  &.is-circle{
     border-radius: 50%;
     width: 32px;
     padding: 0;
@@ -106,6 +104,15 @@ export default {
     .icon{
       margin-right: 0;
     }
+  }
+  &.is-round{
+    border-radius: 20px;
+    // width: 32px;
+    // padding: 0;
+    // justify-content: center;
+    // .icon{
+    //   margin-right: 0;
+    // }
   }
 }
 </style>

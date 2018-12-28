@@ -4,10 +4,12 @@
     <c-button icon="search">按钮</c-button>
     <c-button icon="search" icon-position="right">按钮</c-button>
     <!-- <c-button icon="search" icon-position="start"">按钮</c-button> -->
-    
+
     <!-- <c-button icon="search" icon-position="left" :loading="loadingShowFlag" @click="loadingShow">按钮</c-button> -->
     <c-button :loading="loadingShowFlag" @click="loadingShow">按钮</c-button>
+
     <c-button icon="search" circle></c-button>
+    <c-button icon="search" round>圆角按钮</c-button>
   </div>
 </template>
 
