@@ -6,8 +6,11 @@
     circle:circle,
   }"
   @click="clickHandler">
+  
   <c-icon class="icon" v-if="icon && !loading" :name="icon"></c-icon>
-  <c-icon class="icon" v-else-if="icon && loading" name="load"></c-icon>
+  <!-- <c-icon class="icon" v-else-if="icon && loading" name="load"></c-icon> -->
+  <c-icon class="icon" v-if="loading" name="load"></c-icon>
+
   <div class="content">
     <!-- slot 不能添加class -->
     <slot></slot>
