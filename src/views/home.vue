@@ -11,6 +11,7 @@
     <c-button icon="search" circle></c-button>
     <c-button icon="search" round>圆角按钮</c-button>
     <c-button icon="search" ghost>幽灵按钮</c-button>
+    <c-button icon="search" disabled @click="disabledClick">禁用按钮</c-button>
   </div>
 </template>
 
@@ -34,6 +35,9 @@ export default {
       setTimeout(()=>{
         this.loadingShowFlag = false
       },2000)
+    },
+    disabledClick(){
+      console.log('11111111')
     },
   }
 }

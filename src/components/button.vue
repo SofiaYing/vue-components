@@ -7,6 +7,7 @@
     'is-round': round,
     'is-ghost': ghost,
   }"
+  :disabled="disabled || loading"
   @click="clickHandler">
 
   <c-icon class="icon" v-if="icon && !loading" :name="icon"></c-icon>
@@ -51,6 +52,7 @@ export default {
     circle: Boolean,
     round: Boolean,
     ghost: Boolean,
+    disabled: Boolean,
   },
   components:{
     'c-icon': icon,
