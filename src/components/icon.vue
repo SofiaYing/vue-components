@@ -15,6 +15,7 @@ export default {
 .c-icon{
   height: 1em;
   width: 1em;
+  fill: @--icon-fill-color;
   &.loading{
     animation: loading 1.5s linear infinite;
   }

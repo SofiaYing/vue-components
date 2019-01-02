@@ -66,10 +66,7 @@ export default {
 </script>
 
 <style lang="less">
-@--button-font-size: 14px;
-@--button-background-color: #42b983;
-@--button-border-radius: 4px;
-@--button-height: 32px;
+
 .c-button{
   font-size: @--button-font-size;
   padding: 0 1em;

@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   // 项目部署的基础路径
   // 我们默认假设你的应用将会部署在域名的根部，
@@ -22,7 +24,13 @@ module.exports = {
 
   // 调整内部的 webpack 配置。
   // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/webpack.md
-  chainWebpack: () => {},
+  // chainWebpack: () => {},
+
+  // chainWebpack: config => {
+  //   const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+  //   types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+  // },
+
   configureWebpack: () => {},
 
   // 是否为生产环境构建生成 source map？
@@ -40,7 +48,7 @@ module.exports = {
     // extract: true,
 
     // 是否开启 CSS source map？
-    sourceMap: false,
+    // sourceMap: false,
 
     // 为预处理器的 loader 传递自定义选项。比如传递给
     // sass-loader 时，使用 `{ sass: { ... } }`。
@@ -55,7 +63,7 @@ module.exports = {
 
     // 为所有的 CSS 及其预处理文件开启 CSS Modules。
     // 这个选项不会影响 `*.vue` 文件。
-    modules: false
+    // modules: true
   },
 
   // 在生产环境下为 Babel 和 TypeScript 使用 `thread-loader`
@@ -74,15 +82,26 @@ module.exports = {
     https: false,
     // hotOnly: true,
     hot:true,
-    // // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
-    // proxy: null, // string | Object
-    // before: app => {
-    //   // `app` 是一个 express 实例
-    // }
   },
 
   // 三方插件的选项
   pluginOptions: {
-    // ...
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [
+        path.resolve(__dirname, './src/assets/styles/variables.less'),
+      ]
+    }
   }
 }
+
+// function addStyleResource (rule) {
+//   rule.use('style-resource')
+//     .loader('style-resources-loader')
+//     .options({
+//       patterns: [
+//         path.resolve(__dirname, './src/assets/styles/variables.less'),
+//       ],
+//     })
+// }
+
