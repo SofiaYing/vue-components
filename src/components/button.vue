@@ -6,6 +6,7 @@
     'is-circle': circle,
     'is-round': round,
     'is-ghost': ghost,
+    'is-disabled': disabled,
   }"
   :disabled="disabled || loading"
   @click="clickHandler">
@@ -113,6 +114,10 @@ export default {
     background-color: transparent;
     border: solid 1px #fff;
     color: #fff;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    background-color: #9fccb7;
   }
 }
 </style>

@@ -37,7 +37,7 @@ export default {
       },2000)
     },
     disabledClick(){
-      console.log('11111111')
+      console.log('未禁用')
     },
   }
 }
