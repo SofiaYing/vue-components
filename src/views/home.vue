@@ -12,11 +12,17 @@
     <c-button icon="search" round>圆角按钮</c-button>
     <c-button icon="search" ghost>幽灵按钮</c-button>
     <c-button icon="search" disabled @click="disabledClick">禁用按钮</c-button>
+
+    <c-button-group>
+      <c-button>左按钮</c-button>
+      <c-button>右按钮</c-button>
+    </c-button-group>
   </div>
 </template>
 
 <script>
-import button from '@/components/button.vue'
+import button from '@/components/button/button'
+import buttonGroup from '@/components/button/button-group'
 
 export default {
   name: 'home',
@@ -26,7 +32,8 @@ export default {
     }
   },
   components:{
-    'c-button':button,
+    'c-button': button,
+    'c-button-group': buttonGroup,
   },
   methods: {
     loadingShow(){
@@ -48,9 +55,7 @@ export default {
     padding: 30px;
     background-color: #2c3e50;
     display: flex;
-    .c-button{
-      margin-right: 10px;
-    }
+    justify-content: space-around;
   }
 </style>
 

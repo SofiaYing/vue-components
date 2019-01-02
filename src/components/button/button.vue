@@ -23,9 +23,10 @@
 </template>
 
 <script>
-import icon from './icon'
+import CIcon from '@/components/icon'
 
 export default {
+  name: 'CButton',
   // props:['icon','iconPosition'],
   props: {
     icon: '',
@@ -56,7 +57,7 @@ export default {
     disabled: Boolean,
   },
   components:{
-    'c-icon': icon,
+    'c-icon': CIcon,
   },
   methods:{
     clickHandler(){
@@ -78,6 +79,7 @@ export default {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;   //两个按钮（内联元素）上下不对齐，添加vertical-align:middle 或 vertical-align:top
+  white-space: nowrap;
   &:hover{
     opacity: 0.9;
   }
@@ -117,7 +119,7 @@ export default {
   }
   &.is-disabled{
     cursor: not-allowed;
-    background-color: #9fccb7;
+    background-color: #9ddcbe;
   }
 }
 </style>
