@@ -3,6 +3,7 @@
   class="c-button" 
   :class="{
     [`icon-${iconPosition}`]: true, 
+    'is-primary': primary,
     'is-circle': circle,
     'is-round': round,
     'is-ghost': ghost,
@@ -55,6 +56,7 @@ export default {
     round: Boolean,
     ghost: Boolean,
     disabled: Boolean,
+    primary: Boolean,
   },
   components:{
     'c-icon': CIcon,
@@ -73,15 +75,24 @@ export default {
   font-size: @--button-font-size;
   padding: 0 1em;
   height: @--button-height;
-  background-color: @--button-background-color;
   border-radius: @--button-border-radius;
-  color: #fff;
+  color: #666;
+  background-color: #fff;
+  border: 1px solid #999;
   display: inline-flex;
   align-items: center;
   vertical-align: middle;   //两个按钮（内联元素）上下不对齐，添加vertical-align:middle 或 vertical-align:top
   white-space: nowrap;
   &:hover{
-    opacity: 0.9;
+    // opacity: 0.9;
+    color: @--default-color;
+    border-color: @--default-color;
+    .c-icon{
+      fill: @--default-color;
+    }
+  }
+  .c-icon{
+    fill: #666;
   }
   .icon{
     order: 1;
@@ -100,6 +111,7 @@ export default {
       order: 1;
     }
   }
+
   &.is-circle{
     border-radius: 50%;
     width: 32px;
@@ -116,10 +128,32 @@ export default {
     background-color: transparent;
     border: solid 1px #fff;
     color: #fff;
+    .c-icon{
+      fill: #fff;
+    }
   }
   &.is-disabled{
     cursor: not-allowed;
-    background-color: #9ddcbe;
+    color: #999;
+    border-color: #999;
+    .c-icon{
+      fill: #999;
+    }
+  }
+
+  &.is-primary{
+    background-color: @--default-color;
+    border: 0;
+    color: #fff;
+    .c-icon{
+      fill: #fff;
+    }
+    &:hover{
+      opacity: 0.9;
+    }
+    &.is-disabled{
+      background-color: #9ddcbe;
+    }
   }
 }
 </style>
