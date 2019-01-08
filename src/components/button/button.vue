@@ -82,14 +82,15 @@ export default {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;   //两个按钮（内联元素）上下不对齐，添加vertical-align:middle 或 vertical-align:top
-  white-space: nowrap;
   &:hover{
-    // opacity: 0.9;
     color: @--default-color;
     border-color: @--default-color;
     .c-icon{
       fill: @--default-color;
     }
+  }
+  &:focus{
+    outline: none;
   }
   .c-icon{
     fill: #666;

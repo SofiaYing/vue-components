@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <c-button>按钮</c-button>
+    <c-button>按钮</c-button> 
     <c-button icon="search" primary>按钮</c-button>
     <c-button icon="search" icon-position="right">按钮</c-button>
     <!-- <c-button icon="search" icon-position="start"">按钮</c-button> -->
@@ -60,15 +60,24 @@ export default {
 
 <style lang="less">
   .home{
+    // font-size: ;
     padding: 30px;
     // background-color: #2c3e50;
     background-color: #fff;
-    display: flex;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: space-around;
     .ghost_wrapper{
       background: #2c3e50;
-      width: 150px;
+      width: 100%;
       height: 50px;
+      display: flex;
+      align-items: center;
+    }
+    .c-button{
+      margin-right: 10px;
+    }
+    .c-button-group{
+      margin-right: 10px;
     }
   }
 </style>
