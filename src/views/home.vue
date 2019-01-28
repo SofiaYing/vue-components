@@ -25,6 +25,13 @@
       <c-button round icon="search">左按钮</c-button>
       <c-button>右按钮</c-button>
     </c-button-group>
+
+    <c-button-group>
+      <div>
+      <c-button>左按钮</c-button>
+      </div>
+      <c-button>右按钮</c-button>
+    </c-button-group>
   </div>
 </template>
 
@@ -78,6 +85,9 @@ export default {
     }
     .c-button-group{
       margin-right: 10px;
+      .c-button{
+        margin: 0;
+      }
     }
   }
 </style>

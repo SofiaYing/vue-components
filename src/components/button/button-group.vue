@@ -12,7 +12,18 @@ export default {
     return {
 
     }
-  }
+  },
+
+  mounted(){
+    // this.$children  vue实例
+    console.log(this.$el.children)
+    for(let node of this.$el.children){
+      if(node.nodeName.toLowerCase() !== 'button'){
+        console.log('c-button-group的子元素需为c-button')
+      }
+    }
+    
+  },
 }
 </script>
 
@@ -21,17 +32,15 @@ export default {
     display: inline-flex;
     vertical-align: middle;
     .c-button{
-      margin-right: -1px !important;      //border重叠，如果使用去掉border的方式设置按钮交叠处的border,会出现在划过等操作改变颜色时border缺失的bug
+      margin-left: -1px !important;      //border重叠，如果使用去掉border的方式设置按钮交叠处的border,会出现在划过等操作改变颜色时border缺失的bug
+      border-radius: 0;
+      &:first-child{
+        border-top-left-radius: @--button-border-radius;
+        border-bottom-left-radius: @--button-border-radius;
+      }
       &:last-child{
-        margin-right: 0;
-      }
-      &:not(:last-child){
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      &:not(:first-child){
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+        border-top-right-radius: @--button-border-radius;
+        border-bottom-right-radius: @--button-border-radius;
       }
       &:hover{
         z-index: 1;
