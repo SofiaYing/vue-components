@@ -67,12 +67,8 @@ export default {
 
 <style lang="less">
   .home{
-    // font-size: ;
     padding: 30px;
-    // background-color: #2c3e50;
     background-color: #fff;
-    // display: flex;
-    // justify-content: space-around;
     .ghost_wrapper{
       background: #2c3e50;
       width: 100%;
