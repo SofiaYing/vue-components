@@ -32,11 +32,13 @@
       </div>
       <c-button>右按钮</c-button>
     </c-button-group>
+
+    <div id="test"></div>
   </div>
 </template>
 
 <script>
-import button from '@/components/button/button'
+// import button from '@/components/button/button'
 import buttonGroup from '@/components/button/button-group'
 
 export default {
@@ -47,7 +49,7 @@ export default {
     }
   },
   components:{
-    'c-button': button,
+    // 'c-button': button,
     'c-button-group': buttonGroup,
   },
   methods: {
@@ -81,9 +83,6 @@ export default {
     }
     .c-button-group{
       margin-right: 10px;
-      .c-button{
-        margin: 0;
-      }
     }
   }
 </style>

@@ -40,6 +40,11 @@ export default {
       &:first-child{
         border-top-left-radius: @--button-border-radius;
         border-bottom-left-radius: @--button-border-radius;
+        &.is-round{
+          border-radius: 0;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
       }
       &:last-child{
         border-top-right-radius: @--button-border-radius;
