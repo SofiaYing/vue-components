@@ -17,7 +17,10 @@ new Vue({
 //单元测试
 //每个输入参数，事件
 import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 const expect = chai.expect
+
 {
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
@@ -49,7 +52,7 @@ const expect = chai.expect
 }
 {
   //挂载到元素上才会进行渲染
-  const div = document.createDlement('div')
+  const div = document.createElement('div')
   document.body.appendChild(div)
 
   const Constructor = Vue.extend(Button)
@@ -59,14 +62,14 @@ const expect = chai.expect
     }
   })
   vm.$mount(div)
-
+  let svg = vm.$el.querySelector('svg')
   let {order} = window.getComputedStyle(svg)
   expect(order).to.eq('1')  //CSS属性为字符串
   vm.$el.remove()
   vm.$destroy()
 }
 {
-  const div = document.createDlement('div')
+  const div = document.createElement('div')
   document.body.appendChild(div)
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
@@ -76,6 +79,7 @@ const expect = chai.expect
     }
   })
   vm.$mount(div)
+  let svg = vm.$el.querySelector('svg')
   let {order} = window.getComputedStyle(svg)
   expect(order).to.eq('2') 
   vm.$el.remove()
@@ -89,12 +93,19 @@ const expect = chai.expect
     }
   })
   vm.$mount()
-  vm.$on('click',function(){
-    // console.log('1')
-    expect(1).to.equal(1)  //期望这个函数被执行，但是不该如此做
-  })
+  //mock,希望某些行为是受控的，而非使用真正的函数
+  let spy = chai.spy(function(){})
+  
+  // vm.$on('click',function(){
+  //   // console.log('1')
+  //   expect(1).to.equal(1)  //期望这个函数被执行，但是不该如此做
+  // })
+
+  vm.$on('click',spy)
+
   let button = vm.$el
   button.click()
+  expect(spy).to.have.been.called()
 
   vm.$el.remove()
   vm.$destroy() 
