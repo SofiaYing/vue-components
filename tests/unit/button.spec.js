@@ -8,7 +8,8 @@ chai.use(sinonChai)
 
 describe('Button.vue', () => {
   it('存在.', () => {
-    expect(Button).to.be.ok
+    // expect(Button).to.be.ok //button存在
+    expect(Button).to.exist
   })
   it('可以设置icon.', () => {
     // const Constructor = Vue.extend(Button)
@@ -32,13 +33,26 @@ describe('Button.vue', () => {
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
     propsData: {
-        icon: 'search',
         loading: true
     }
     }).$mount()
     const useElements = vm.$el.querySelectorAll('use')
     expect(useElements.length).to.equal(1)
     expect(useElements[0].getAttribute('xlink:href')).to.equal('#icon-loading')
+    vm.$destroy()
+  })
+  it('设置为loading时,disabled存在.', () => {
+    const Constructor = Vue.extend(Button)
+    const vm = new Constructor({
+    propsData: {
+      loading: true
+    }
+    }).$mount()
+    console.log(vm.$el.getAttribute('disabled'))
+    const useElements = vm.$el.querySelectorAll('use')
+    expect(useElements.length).to.equal(1)
+    expect(useElements[0].getAttribute('xlink:href')).to.equal('#icon-loading')
+    expect(vm.$el.getAttribute('disabled')).to.equal('disabled')
     vm.$destroy()
   })
   //运行在node.js环境下，无法获取样式
@@ -79,16 +93,13 @@ describe('Button.vue', () => {
     // }
     // }).$mount()
 
-    const wrapper = mount(Button,{
-      propsData: {
-        icon: 'search',
-      }
-    })
+    const wrapper = mount(Button)
     const vm = wrapper.vm
-
+    //sinon库中，fake假函数，知道自己是否被调用，以及所传参数
     const callback = sinon.fake();
     vm.$on('click', callback)
     vm.$el.click()
     expect(callback).to.have.been.called
+    vm.$destroy()
   })
 })
