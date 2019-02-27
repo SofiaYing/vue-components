@@ -1,8 +1,8 @@
 .DS_Store
 node_modules/
-/dist/
+dist/
 npm-debug.log*
-/test/unit/coverage/
+test/unit/
 
 # Editor directories and files
 # 忽略使用WebStorm开发时，生成的缓存文件夹
