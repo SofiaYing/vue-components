@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 
 .c-button{
   font-size: @--button-font-size;
@@ -78,7 +78,7 @@ export default {
   border-radius: @--button-border-radius;
   color: #666;
   background-color: #fff;
-  border: 1px solid #999;
+  border: 1px solid @--default-border-color;
   display: inline-flex;
   align-items: center;
   vertical-align: middle;   //两个按钮（内联元素）上下不对齐，添加vertical-align:middle 或 vertical-align:top

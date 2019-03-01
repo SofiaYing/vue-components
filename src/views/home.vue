@@ -10,9 +10,10 @@
 
     <c-button icon="search" circle></c-button>
     <c-button icon="search" round>圆角按钮</c-button>
-    <div class="ghost_wrapper">
+    <!-- 幽灵按钮：暂时去掉 -->
+    <!-- <div class="ghost_wrapper">
       <c-button icon="search" ghost>幽灵按钮</c-button>
-    </div>
+    </div> -->
     
     <c-button icon="search" disabled @click="disabledClick">禁用按钮</c-button>
 
@@ -26,20 +27,23 @@
       <c-button>右按钮</c-button>
     </c-button-group>
 
-    <c-button-group>
+    <!-- 错误提示示例 -->
+    <!-- <c-button-group>
       <div>
       <c-button>左按钮</c-button>
       </div>
       <c-button>右按钮</c-button>
-    </c-button-group>
+    </c-button-group> -->
 
-    <div id="test"></div>
+    <c-input value="ZH"></c-input>
+    <c-input disabled></c-input>
   </div>
 </template>
 
 <script>
 // import button from '@/components/button/button'
 import buttonGroup from '@/components/button/button-group'
+import input from '@/components/input/input'
 
 export default {
   name: 'home',
@@ -51,6 +55,7 @@ export default {
   components:{
     // 'c-button': button,
     'c-button-group': buttonGroup,
+    'c-input': input,
   },
   methods: {
     loadingShow(){
