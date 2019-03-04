@@ -72,7 +72,7 @@ export default {
 <style lang="less" scoped>
 
 .c-button{
-  font-size: @--button-font-size;
+  font-size: @--default-font-size;
   padding: 0 1em;
   height: @--button-height;
   border-radius: @--button-border-radius;

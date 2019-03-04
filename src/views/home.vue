@@ -1,42 +1,49 @@
 <template>
   <div class="home">
-    <c-button>按钮</c-button> 
-    <c-button icon="search" primary>按钮</c-button>
-    <c-button icon="search" icon-position="right">按钮</c-button>
-    <!-- <c-button icon="search" icon-position="start"">按钮</c-button> -->
+    <div class="box">
+      <c-button>按钮</c-button> 
+      <c-button icon="search" primary>按钮</c-button>
+      <c-button icon="search" icon-position="right">按钮</c-button>
+      <!-- <c-button icon="search" icon-position="start"">按钮</c-button> -->
 
-    <!-- <c-button icon="search" icon-position="left" :loading="loadingShowFlag" @click="loadingShow">按钮</c-button> -->
-    <c-button :loading="loadingShowFlag" @click="loadingShow">按钮</c-button>
+      <!-- <c-button icon="search" icon-position="left" :loading="loadingShowFlag" @click="loadingShow">按钮</c-button> -->
+      <c-button :loading="loadingShowFlag" @click="loadingShow">按钮</c-button>
 
-    <c-button icon="search" circle></c-button>
-    <c-button icon="search" round>圆角按钮</c-button>
-    <!-- 幽灵按钮：暂时去掉 -->
-    <!-- <div class="ghost_wrapper">
-      <c-button icon="search" ghost>幽灵按钮</c-button>
-    </div> -->
+      <c-button icon="search" circle></c-button>
+      <c-button icon="search" round>圆角按钮</c-button>
+      <!-- 幽灵按钮：暂时去掉 -->
+      <!-- <div class="ghost_wrapper">
+        <c-button icon="search" ghost>幽灵按钮</c-button>
+      </div> -->
+      
+      <c-button icon="search" disabled @click="disabledClick">禁用按钮</c-button>
+    </div>
+    <div class="box">
+      <c-button-group>
+        <c-button>左按钮</c-button>
+        <c-button>右按钮</c-button>
+      </c-button-group>
+
+      <c-button-group>
+        <c-button round icon="search">左按钮</c-button>
+        <c-button>右按钮</c-button>
+      </c-button-group>
+
+      <!-- 错误提示示例 -->
+      <!-- <c-button-group>
+        <div>
+        <c-button>左按钮</c-button>
+        </div>
+        <c-button>右按钮</c-button>
+      </c-button-group> -->
+    </div>
     
-    <c-button icon="search" disabled @click="disabledClick">禁用按钮</c-button>
-
-    <c-button-group>
-      <c-button>左按钮</c-button>
-      <c-button>右按钮</c-button>
-    </c-button-group>
-
-    <c-button-group>
-      <c-button round icon="search">左按钮</c-button>
-      <c-button>右按钮</c-button>
-    </c-button-group>
-
-    <!-- 错误提示示例 -->
-    <!-- <c-button-group>
-      <div>
-      <c-button>左按钮</c-button>
-      </div>
-      <c-button>右按钮</c-button>
-    </c-button-group> -->
-
-    <c-input value="ZH"></c-input>
-    <c-input disabled></c-input>
+    <div class="box">
+      <c-input value="ZH"></c-input>
+      <c-input disabled value="张"></c-input>
+      <c-input value="张" error="姓名不能少于两个字"></c-input>
+    </div>
+    
   </div>
 </template>
 
@@ -76,6 +83,9 @@ export default {
   .home{
     padding: 30px;
     background-color: #fff;
+    .box{
+      margin: 20px 0;
+    }
     .ghost_wrapper{
       background: #2c3e50;
       width: 100%;
@@ -87,6 +97,9 @@ export default {
       margin-right: 10px;
     }
     .c-button-group{
+      margin-right: 10px;
+    }
+    .c-input{
       margin-right: 10px;
     }
   }
